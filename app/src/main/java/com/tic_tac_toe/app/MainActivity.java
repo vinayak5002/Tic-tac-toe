@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Submit button", "userNameSubmit: ");
     }
 
-    String warningMessage = " ";
     String userName;
 
     Button submitButton;
     EditText userNameField;
+    TextView warningMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         submitButton = findViewById(R.id.UserNameSubmit);
+        warningMessage = findViewById(R.id.WarningMessage);
+        warningMessage.setText(" ");
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if(!userName.equals("")){
                     Log.i("user name", "onClick: user name not null");
-                    Log.i("user name", userName);
                     startActivity(launchGame);
+                    warningMessage.setText(" ");
+                }
+                else{
+                    warningMessage.setText("warning! : please enter user name to proceed");
                 }
             }
         });
