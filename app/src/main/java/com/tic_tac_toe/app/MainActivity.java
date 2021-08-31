@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Submit button", "userNameSubmit: ");
     }
 
+    String warningMessage = " ";
+    String userName;
+
     Button submitButton;
+    EditText userNameField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +31,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent launchGame = new Intent(MainActivity.this, GamePage.class);
-                startActivity(launchGame);
+
+                userNameField = (EditText) findViewById(R.id.UserName);
+                userName = userNameField.getText().toString();
+
+                if(!userName.equals("")){
+                    Log.i("user name", "onClick: user name not null");
+                    Log.i("user name", userName);
+                    startActivity(launchGame);
+                }
             }
         });
 
