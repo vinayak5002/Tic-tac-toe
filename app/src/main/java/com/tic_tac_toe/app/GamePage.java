@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 
 public class GamePage extends AppCompatActivity {
 
     DetermineWinner determine;
     int[][] board = { {-1,-1,-1}, {-1,-1,-1}, {-1,-1,-1} };
+    HashMap<Integer , PositionOfBoard> positions = new HashMap<Integer, PositionOfBoard>();
 
     int count = 0;
     int a[][] = new int[3][3];
@@ -27,10 +30,9 @@ public class GamePage extends AppCompatActivity {
         count ++;
         ImageButton button = (ImageButton) findViewById(view.getId());
         ImageButton disableButton;
-        String id = view.getResources().getResourceName(view.getId());
         // Use this id to update in array a and call the getWinner method to find the winner
-        int i = Character.getNumericValue( id.charAt(24) );
-        int j = Character.getNumericValue( id.charAt(25) );
+        int i = positions.get(view.getId()).getI();
+        int j = positions.get(view.getId()).getJ();
         Drawable cross = getResources().getDrawable(R.drawable.x);
         Drawable circle = getResources().getDrawable(R.drawable.o);
 
@@ -69,6 +71,15 @@ public class GamePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_page);
+        positions.put(R.id._00, new PositionOfBoard(0, 0));
+        positions.put(R.id._01, new PositionOfBoard(0, 1));
+        positions.put(R.id._02, new PositionOfBoard(0, 2));
+        positions.put(R.id._10, new PositionOfBoard(1, 0));
+        positions.put(R.id._11, new PositionOfBoard(1, 1));
+        positions.put(R.id._12, new PositionOfBoard(1, 2));
+        positions.put(R.id._20, new PositionOfBoard(2, 0));
+        positions.put(R.id._21, new PositionOfBoard(2, 1));
+        positions.put(R.id._22, new PositionOfBoard(2, 2));
     }
 
 }
