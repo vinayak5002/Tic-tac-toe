@@ -62,6 +62,9 @@ public class GamePage extends AppCompatActivity {
                 disableButton.setEnabled(false);
             }
         }
+        else if(count == 9){
+            title.setText("Its a draw");
+        }
 
     }
 
