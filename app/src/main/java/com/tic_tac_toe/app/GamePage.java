@@ -18,11 +18,13 @@ public class GamePage extends AppCompatActivity {
     int a[][] = new int[3][3];
 
     TextView title;
+    int buttons[] = { R.id._00, R.id._01, R.id._02, R.id._10, R.id._11, R.id._12, R.id._20, R.id._21, R.id._22 };
 
     public void press(View view) {
         title = findViewById(R.id.gamePage);
         count ++;
         Button button = (Button) findViewById(view.getId());
+        Button disableButton;
         String id = view.getResources().getResourceName(view.getId());
         // Use this id to update in array a and call the getWinner method to find the winner
         int i = Character.getNumericValue( id.charAt(24) );
@@ -46,6 +48,10 @@ public class GamePage extends AppCompatActivity {
         Log.i("winner:", String.valueOf(winner));
         if(winner == 1 || winner == 0){
             title.setText(String.valueOf(winner));
+            for(i=0; i<9; i++){
+                disableButton = findViewById(buttons[i]);
+                disableButton.setEnabled(false);
+            }
         }
 
     }
