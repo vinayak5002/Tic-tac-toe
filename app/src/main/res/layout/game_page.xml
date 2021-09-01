@@ -147,15 +147,19 @@
         app:layout_constraintVertical_bias="0.337"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="TODO" />
+
     <Button
+        android:id="@+id/rematch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rematch"
-        android:text="Rematch"
+        android:onClick="rematch"
+        android:text="rematch"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="rematch"
-
-        ></Button>
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_21"
+        app:layout_constraintVertical_bias="0.333" />
 
 </android.support.constraint.ConstraintLayout>

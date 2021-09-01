@@ -25,10 +25,10 @@ public class GamePage extends AppCompatActivity {
     int a[][] = new int[3][3];
 
     TextView title;
+    Button rematch;
     int buttons[] = { R.id._00, R.id._01, R.id._02, R.id._10, R.id._11, R.id._12, R.id._20, R.id._21, R.id._22 };
 
     public void press(View view) {
-        title = findViewById(R.id.gamePage);
         count ++;
         ImageButton button = (ImageButton) findViewById(view.getId());
         ImageButton disableButton;
@@ -63,9 +63,11 @@ public class GamePage extends AppCompatActivity {
                 disableButton = findViewById(buttons[i]);
                 disableButton.setEnabled(false);
             }
+            rematch.setVisibility(View.VISIBLE);
         }
         else if(count == 9){
             title.setText("Its a draw");
+            rematch.setVisibility(View.VISIBLE);
         }
 
     }
@@ -75,6 +77,7 @@ public class GamePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_page);
         title = findViewById(R.id.gamePage);
+        rematch = findViewById(R.id.rematch);
         if(count%2 == 0){
             title.setText("O's turn");
         }
