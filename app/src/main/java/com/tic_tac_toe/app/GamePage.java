@@ -1,11 +1,13 @@
 package com.tic_tac_toe.app;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -23,28 +25,29 @@ public class GamePage extends AppCompatActivity {
     public void press(View view) {
         title = findViewById(R.id.gamePage);
         count ++;
-        Button button = (Button) findViewById(view.getId());
-        Button disableButton;
+        ImageButton button = (ImageButton) findViewById(view.getId());
+        ImageButton disableButton;
         String id = view.getResources().getResourceName(view.getId());
         // Use this id to update in array a and call the getWinner method to find the winner
         int i = Character.getNumericValue( id.charAt(24) );
         int j = Character.getNumericValue( id.charAt(25) );
+        Drawable cross = getResources().getDrawable(R.drawable.x);
+        Drawable circle = getResources().getDrawable(R.drawable.o);
+
 
         int winner;
 
         if(count %2 == 0){
-            button.setText("X");
+            button.setImageDrawable(cross);
             title.setText("O's turn");
             board[i][j] = 1;
             winner = determine.getWinner(board);
-            button.setBackgroundColor(Color.BLUE);
         }
         else{
-            button.setText("O");
+            button.setImageDrawable(circle);
             title.setText("X's turn");
             board[i][j] = 0;
             winner = determine.getWinner(board);
-            button.setBackgroundColor(Color.RED);
         }
         button.setEnabled(false);
         Log.i("winner:", String.valueOf(winner));

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GamePage">
+    tools:context=".GamePage"
+    android:background="@drawable/bacground"
+    >
 
     <TextView
         android:id="@+id/gamePage"
@@ -12,8 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="O's Turn"
-        android:textColor="@android:color/background_dark"
-        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,118 +24,128 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.099" />
 
-    <Button
-        android:id="@+id/_01"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:onClick="press"
-        android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
-
-    <Button
+    <ImageButton
         android:id="@+id/_02"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginEnd="4dp"
         android:onClick="press"
         android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/_01"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintVertical_bias="0.337"
+        android:contentDescription="TODO" />
 
-    <Button
-        android:id="@+id/_00"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:onClick="press"
-        android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/_01"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
-
-    <Button
+    <ImageButton
         android:id="@+id/_11"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:onClick="press"
         android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_01" />
+        app:layout_constraintTop_toBottomOf="@+id/_01"
+        android:contentDescription="TODO" />
 
-    <Button
+    <ImageButton
         android:id="@+id/_12"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:onClick="press"
         android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toEndOf="@+id/_11"
-        app:layout_constraintTop_toBottomOf="@+id/_02" />
+        app:layout_constraintTop_toBottomOf="@+id/_02"
+        android:contentDescription="TODO" />
 
-    <Button
+    <ImageButton
         android:id="@+id/_10"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:onClick="press"
         android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/_11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_00" />
+        app:layout_constraintTop_toBottomOf="@+id/_00"
+        android:contentDescription="TODO" />
 
-    <Button
+    <ImageButton
         android:id="@+id/_20"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:onClick="press"
         android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/_21"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_10" />
+        app:layout_constraintTop_toBottomOf="@+id/_10"
+        android:contentDescription="TODO" />
 
-    <Button
+    <ImageButton
         android:id="@+id/_21"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:onClick="press"
         android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/_11"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="TODO" />
 
-    <Button
+    <ImageButton
         android:id="@+id/_22"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:onClick="press"
         android:textStyle="bold"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/_21"
-        app:layout_constraintTop_toBottomOf="@+id/_12" />
+        app:layout_constraintTop_toBottomOf="@+id/_12"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/_00"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="4dp"
+        android:onClick="press"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/_01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/_01"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:onClick="press"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="TODO" />
 
 </android.support.constraint.ConstraintLayout>
