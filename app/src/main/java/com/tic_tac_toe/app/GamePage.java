@@ -33,20 +33,18 @@ public class GamePage extends AppCompatActivity {
         // Use this id to update in array a and call the getWinner method to find the winner
         int i = positions.get(view.getId()).getI();
         int j = positions.get(view.getId()).getJ();
-        Drawable cross = getResources().getDrawable(R.drawable.x);
-        Drawable circle = getResources().getDrawable(R.drawable.o);
 
 
         int winner;
 
         if(count %2 == 0){
-            button.setImageDrawable(cross);
+            button.setBackgroundResource(R.drawable.x);
             title.setText("O's turn");
             board[i][j] = 1;
             winner = determine.getWinner(board);
         }
         else{
-            button.setImageDrawable(circle);
+            button.setBackgroundResource(R.drawable.o);
             title.setText("X's turn");
             board[i][j] = 0;
             winner = determine.getWinner(board);
