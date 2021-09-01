@@ -34,20 +34,26 @@ public class GamePage extends AppCompatActivity {
 
         if(count %2 == 0){
             button.setText("X");
-            board[i][j] = 1;   //this is where the app is crashing again
+            title.setText("O's turn");
+            board[i][j] = 1;
             winner = determine.getWinner(board);
             button.setBackgroundColor(Color.BLUE);
         }
         else{
             button.setText("O");
-            board[i][j] = 0;  //and here too
+            title.setText("X's turn");
+            board[i][j] = 0;
             winner = determine.getWinner(board);
             button.setBackgroundColor(Color.RED);
         }
         button.setEnabled(false);
         Log.i("winner:", String.valueOf(winner));
         if(winner == 1 || winner == 0){
-            title.setText(String.valueOf(winner));
+            if (winner == 1) {
+                title.setText("Winner is X");
+            } else {
+                title.setText("Winner is O");
+            }
             for(i=0; i<9; i++){
                 disableButton = findViewById(buttons[i]);
                 disableButton.setEnabled(false);
@@ -59,11 +65,6 @@ public class GamePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
-                a[i][j]=-1;
-            }
-        }
         setContentView(R.layout.game_page);
     }
 

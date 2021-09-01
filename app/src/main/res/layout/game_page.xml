@@ -11,7 +11,7 @@
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Game Page"
+        android:text="O's Turn"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         android:textStyle="bold"
