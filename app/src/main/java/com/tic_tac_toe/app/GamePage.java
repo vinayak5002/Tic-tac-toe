@@ -1,8 +1,5 @@
 package com.tic_tac_toe.app;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,11 +18,15 @@ public class GamePage extends AppCompatActivity {
     int[][] board = { {-1,-1,-1}, {-1,-1,-1}, {-1,-1,-1} };
     HashMap<Integer , PositionOfBoard> positions = new HashMap<Integer, PositionOfBoard>();
 
-    int count = (new Random().nextInt())%2;
+    int turn = (new Random().nextInt())%2;
+    int count = 0;
     int a[][] = new int[3][3];
+    int xWin = 0, oWin = 0;
 
     TextView title;
+    TextView scores;
     Button rematch;
+    ImageButton button;
     int buttons[] = { R.id._00, R.id._01, R.id._02, R.id._10, R.id._11, R.id._12, R.id._20, R.id._21, R.id._22 };
 
     public void press(View view) {
@@ -56,14 +57,18 @@ public class GamePage extends AppCompatActivity {
         if(winner == 1 || winner == 0){
             if (winner == 1) {
                 title.setText("Winner is X");
+                xWin++;
             } else {
                 title.setText("Winner is O");
+                oWin++;
             }
             for(i=0; i<9; i++){
                 disableButton = findViewById(buttons[i]);
                 disableButton.setEnabled(false);
             }
             rematch.setVisibility(View.VISIBLE);
+            scores = findViewById(R.id.scores);
+            scores.setText("O - " + oWin +" | X - " + xWin);
         }
         else if(count == 9){
             title.setText("Its a draw");
@@ -78,7 +83,7 @@ public class GamePage extends AppCompatActivity {
         setContentView(R.layout.game_page);
         title = findViewById(R.id.gamePage);
         rematch = findViewById(R.id.rematch);
-        if(count%2 == 0){
+        if(turn%2 == 0){
             title.setText("O's turn");
         }
         else{
@@ -96,7 +101,20 @@ public class GamePage extends AppCompatActivity {
     }
 
     public void rematch(View view) {
-        Intent launch = new Intent(GamePage.this, GamePage.class);
-        startActivity(launch);
+        board = new int[][]{{-1, -1, -1}, {-1, -1, -1}, {-1, -1, -1}};
+        int count = (new Random().nextInt())%2;
+        if(count%2 == 0){
+            title.setText("O's turn");
+        }
+        else{
+            title.setText("X's turn");
+        }
+        for(int i=0; i<9; i++){
+            button = findViewById(buttons[i]);
+            button.setEnabled(true);
+            button.setBackgroundResource(R.drawable.white);
+
+            rematch.setVisibility(View.INVISIBLE);
+        }
     }
 }
