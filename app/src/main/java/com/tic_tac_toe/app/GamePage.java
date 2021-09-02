@@ -112,7 +112,7 @@ public class GamePage extends AppCompatActivity {
         for(int i=0; i<9; i++){
             button = findViewById(buttons[i]);
             button.setEnabled(true);
-            button.setBackgroundResource(R.drawable.white);
+            button.setBackgroundResource(R.drawable.button_border);
 
             rematch.setVisibility(View.INVISIBLE);
         }
