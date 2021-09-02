@@ -1,5 +1,6 @@
 package com.tic_tac_toe.app;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,13 +27,14 @@ public class GamePage extends AppCompatActivity {
     TextView title;
     TextView scores;
     Button rematch;
-    ImageButton button;
+    Button button;
+    Button cell1, cell2, cell3;
     int buttons[] = { R.id._00, R.id._01, R.id._02, R.id._10, R.id._11, R.id._12, R.id._20, R.id._21, R.id._22 };
 
     public void press(View view) {
         count ++;
-        ImageButton button = (ImageButton) findViewById(view.getId());
-        ImageButton disableButton;
+        button = findViewById(view.getId());
+        Button disableButton;
         // Use this id to update in array a and call the getWinner method to find the winner
         int i = positions.get(view.getId()).getI();
         int j = positions.get(view.getId()).getJ();
@@ -41,20 +43,22 @@ public class GamePage extends AppCompatActivity {
         int winner;
 
         if(count %2 == 0){
-            button.setBackgroundResource(R.drawable.x);
+            button.setText("X");
+            button.setTextColor(Color.parseColor("#1803ff"));
             title.setText("O's turn");
             board[i][j] = 1;
             winner = determine.getWinner(board);
         }
         else{
-            button.setBackgroundResource(R.drawable.o);
+            button.setText("O");
+            button.setTextColor(Color.parseColor("#ff0303"));
             title.setText("X's turn");
             board[i][j] = 0;
             winner = determine.getWinner(board);
         }
         button.setEnabled(false);
         Log.i("winner:", String.valueOf(winner));
-        if(winner == 1 || winner == 0){
+        if(winner == 1 || winner == 0) {
             if (winner == 1) {
                 title.setText("Winner is X");
                 xWin++;
@@ -62,13 +66,13 @@ public class GamePage extends AppCompatActivity {
                 title.setText("Winner is O");
                 oWin++;
             }
-            for(i=0; i<9; i++){
+            for (i = 0; i < 9; i++) {
                 disableButton = findViewById(buttons[i]);
                 disableButton.setEnabled(false);
             }
             rematch.setVisibility(View.VISIBLE);
             scores = findViewById(R.id.scores);
-            scores.setText("O - " + oWin +" | X - " + xWin);
+            scores.setText("O - " + oWin + " | X - " + xWin);
         }
         else if(count == 9){
             title.setText("Its a draw");
@@ -112,7 +116,7 @@ public class GamePage extends AppCompatActivity {
         for(int i=0; i<9; i++){
             button = findViewById(buttons[i]);
             button.setEnabled(true);
-            button.setBackgroundResource(R.drawable.button_border);
+            button.setText(" ");
 
             rematch.setVisibility(View.INVISIBLE);
         }
